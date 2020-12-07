@@ -53,6 +53,21 @@ public class Menu {
                         JOptionPane.showMessageDialog(null, "No existe ninguna cuenta para depositar");
                     }
                     break;
+                    
+                    
+                case 5: 
+                    int idO = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el identificador de la cuenta a la que desea retirar dinero"));
+                    int idD = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el identificador de la cuenta a la que desea depositar dinero"));
+                    
+                    if (operacion.getX() >= idO && operacion.getX() >= idD) {
+                         double mon = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el dinero de la transacción"));
+     
+                        operacion.transaccionR(idO,idD,mon);
+                 
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No existe ninguna cuenta para retirar");
+                    }
+                    break;
                 case 7:
                     infoBanco.mision();
                     infoBanco.vision();
