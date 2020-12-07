@@ -14,15 +14,14 @@ public class Clientes {
     private double saldo = 0;
     private int idCuenta;
 
-
-    public Clientes() {
+    public Clientes(String cedula, String nombre, String numTelefono, int edad, int idCuenta) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.numTelefono = numTelefono;
         this.edad = edad;
         this.idCuenta = idCuenta;
-        this.saldo = saldo;
     }
+
 
     public double getSaldo() {
         return saldo;
