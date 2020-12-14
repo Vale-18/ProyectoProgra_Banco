@@ -12,9 +12,9 @@ public class OperacionesGenerales {
 
         int id = x;
         String nombre = JOptionPane.showInputDialog(null, "Escriba su nombre:", "Nombre", 3);
-        String cedula = JOptionPane.showInputDialog(null, "Digite su cedula, sin caracteres especiales:", "Cédula", 3);
-        String numTelefono = JOptionPane.showInputDialog(null, "Digite su número de teléfono, sin caracteres especiales:", "Número de teléfono", 3);
-        int edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite su edad, recuerde que debe ser mayor de edad:", "Edad", 3));
+        String cedula =ValidarCedula();
+        String numTelefono = ValidarNumeroTelefono();
+        int edad = ValidarEdad();
         arregloCuentas[x] = new Clientes(cedula, nombre, numTelefono, edad, id);
         retornarDatos(id);
         x++;
@@ -25,7 +25,7 @@ public class OperacionesGenerales {
 
             if (arregloCuentas[a].getIdCuenta() == id) {
                 arregloCuentas[a].setSaldo(arregloCuentas[a].getSaldo() + mon);
-                JOptionPane.showMessageDialog(null, "El nuevo saldo de la cuenta es:" + arregloCuentas[a].getSaldo());
+                JOptionPane.showMessageDialog(null, "Deposito Realizado con exito");
                 return;
             }
         }
@@ -54,6 +54,7 @@ public class OperacionesGenerales {
                 if (arregloCuentas[a].getIdCuenta() == id) {
                     if (mon <= arregloCuentas[a].getSaldo()) {
                         arregloCuentas[a].setSaldo(arregloCuentas[a].getSaldo() - mon);
+                        JOptionPane.showMessageDialog(null, "Retiro realizado con exito");
                     } else {
                         JOptionPane.showMessageDialog(null, "Lo sentimos, su cuenta tiene fondos insuficientes.", "Fondos insuficientes", 3);
                     }
@@ -87,6 +88,7 @@ public class OperacionesGenerales {
         for (int b = 0; b < arregloCuentas.length; b++) {
             if (arregloCuentas[b].getIdCuenta() == idDestino) {
                 arregloCuentas[b].setSaldo(arregloCuentas[b].getSaldo() + mon);
+                JOptionPane.showMessageDialog(null, "Transaccion realizada con exito");
                 return;
             }
         }
@@ -108,6 +110,48 @@ public class OperacionesGenerales {
             JOptionPane.showMessageDialog(null, "Lo sentimos, no existen cuentas disponibles.", "Cuentas no disponibles", 2);           
        }
     }
+public String ValidarCedula(){
+   String ced=JOptionPane.showInputDialog(null, "Digite su cedula, sin caracteres especiales:", "Cédula", 3);
+ do {
+            if (ced.length() == 9) {
+            
+               
+            } else {
+                JOptionPane.showMessageDialog(null, "Cédula inválida, digítela de nuevo");
+                    ced = JOptionPane.showInputDialog(null, "Digite su cedula, sin caracteres especiales: ", "Cédula", 3);
+                
+            }
+        } while (ced.length() != 9);
+ return ced;
+}
+public String ValidarNumeroTelefono(){
+   String num=JOptionPane.showInputDialog(null, "Digite su número de teléfono, sin caracteres especiales:", "Número de teléfono", 3);
+ do {
+            if (num.length() == 8) {
+            
+               
+            } else {
+                JOptionPane.showMessageDialog(null, "Cédula inválida, digítela de nuevo");
+                    num =JOptionPane.showInputDialog(null, "Digite su número de teléfono, sin caracteres especiales:", "Número de teléfono", 3);
+                
+            }
+        } while (num.length() != 8);
+ return num;
+}
+public int ValidarEdad(){
+  int ed=Integer.parseInt(JOptionPane.showInputDialog(null, "Digite su edad, recuerde que debe ser mayor de edad:", "Edad", 3));
+
+ do {
+            if (ed >= 18) {
+            
+            } else {
+                JOptionPane.showMessageDialog(null, "Edad inválida, digítela de nuevo");
+                ed = (Integer.parseInt(JOptionPane.showInputDialog(null, "Digite su edad, recuerde que debe ser mayor de edad:", "Edad", 3)));
+                
+            }
+        } while (ed < 18);
+ return ed;
+}
 
     public int getX() {
         return x;
