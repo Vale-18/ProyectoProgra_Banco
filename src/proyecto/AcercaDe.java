@@ -3,7 +3,7 @@ package proyecto;
 import javax.swing.JOptionPane;
 
 public class AcercaDe {
-    //esta clase es para informar a los clientes sobre el banco.
+    //esta clase es para informar a los clientes sobre el banco
 //METODO QUE ENSENIA LA MISION DEL BANCO
     public void mision() {
         JOptionPane.showMessageDialog(null, "Impulsar el crecimiento sostenible de nuestros clientes, colaboradores, accionistas y del país.", "Misión", 1);
