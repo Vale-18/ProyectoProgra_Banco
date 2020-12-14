@@ -110,7 +110,7 @@ public class OperacionesGenerales {
             JOptionPane.showMessageDialog(null, "Lo sentimos, no existen cuentas disponibles.", "Cuentas no disponibles", 2);           
        }
     }
-    //METODO QUE VALIDA QUE LA CEDULA TENGA 9 CARACTERES
+    //METODO QUE VALIDA QUE LA CEDULA TENGA 9 CARACTERES.
 public String ValidarCedula(){
    String ced=JOptionPane.showInputDialog(null, "Digite su cedula, sin caracteres especiales:", "Cédula", 3);
  do {
