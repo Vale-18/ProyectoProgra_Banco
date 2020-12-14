@@ -1,15 +1,13 @@
 package proyecto;
 public class Clientes {
-
-    OperacionesGenerales operacion = new OperacionesGenerales();
-
+//VARIABLES DEL CLIENTE
     private String cedula;
     private String nombre;
     private String numTelefono;
     private int edad;
     private double saldo = 0;
     private int idCuenta;
-
+//CONSTRUCTOR
     public Clientes(String cedula, String nombre, String numTelefono, int edad, int idCuenta) {
         this.cedula = cedula;
         this.nombre = nombre;
@@ -17,7 +15,7 @@ public class Clientes {
         this.edad = edad;
         this.idCuenta = idCuenta;
     }
-
+//GETTERS Y SETTERRS
     public double getSaldo() {
         return saldo;
     }

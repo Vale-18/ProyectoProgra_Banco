@@ -4,10 +4,10 @@ import javax.swing.JOptionPane;
 
 public class OperacionesGenerales {
 
-    int tamanio = 10;
-    private Clientes arregloCuentas[] = new Clientes[tamanio];
-    private int x = 0;
-
+    int tamanio = 10; //Tamanio del arreglo de objetos
+    private Clientes arregloCuentas[] = new Clientes[tamanio]; //arreglo de objetos que contiene la informacion de los clientes
+    private int x = 0; //variable que cuenta la cantidad de cuentas que se han creado
+//Metodo que inserta la informacion del cliente en el constructor
     public void pedirInfo() {
 
         int id = x;
@@ -19,7 +19,7 @@ public class OperacionesGenerales {
         retornarDatos(id);
         x++;
     }
-
+//METODO QUE DEPOSITA EN UNA CUENTA ESPECIFICA
     public void depositar(int id, double mon) {
         for (int a = 0; a < arregloCuentas.length; a++) {
 
@@ -30,7 +30,7 @@ public class OperacionesGenerales {
             }
         }
     }
-
+//METODO QUE RETORNA LOS DATOS DE UNA CUENTA ESPECIFICA
     public void retornarDatos(int id) {
         if (arregloCuentas[0].getIdCuenta() == 0) {
             for (int a = 0; a < arregloCuentas.length; a++) {
@@ -46,7 +46,7 @@ public class OperacionesGenerales {
             JOptionPane.showMessageDialog(null, "No existe ninguna cuenta");
         }
     }
-
+//METODO QUE RETIRA EN UNA CUENTA ESPECIFICA
     public void retirar(int id, double mon) {
         if (arregloCuentas[0].getIdCuenta() == 0) {
             for (int a = 0; a < arregloCuentas.length; a++) {
@@ -65,7 +65,7 @@ public class OperacionesGenerales {
             JOptionPane.showMessageDialog(null, "No existe ninguna cuenta");
         }
     }
-
+//METODO QUE EXTRAE EL DINERO DEL LA CUENTA DE ORIGEN
     public void transaccionR(int idOrigen, int idDestino, double mon) {
 
         for (int a = 0; a < arregloCuentas.length; a++) {
@@ -83,7 +83,7 @@ public class OperacionesGenerales {
             }
         }
     }
-
+//METODO QUE SUMA EL DINERO EN LA CUENTA DESTINO
     public void transaccionD(int idDestino, double mon) {
         for (int b = 0; b < arregloCuentas.length; b++) {
             if (arregloCuentas[b].getIdCuenta() == idDestino) {
@@ -93,7 +93,7 @@ public class OperacionesGenerales {
             }
         }
     }
-
+//METODO QUE INSERTA A TODOS LOS CLIENTES CREADOS EN UNA VARIABLE Y LOS ENSENIA
     public void mostrarClientes() {
         String texto= "Los clientes disponibles son: \n";
         int cantidadClientes= x;
@@ -110,6 +110,7 @@ public class OperacionesGenerales {
             JOptionPane.showMessageDialog(null, "Lo sentimos, no existen cuentas disponibles.", "Cuentas no disponibles", 2);           
        }
     }
+    //METODO QUE VALIDA QUE LA CEDULA TENGA 9 CARACTERES
 public String ValidarCedula(){
    String ced=JOptionPane.showInputDialog(null, "Digite su cedula, sin caracteres especiales:", "Cédula", 3);
  do {
@@ -124,6 +125,7 @@ public String ValidarCedula(){
         } while (ced.length() != 9);
  return ced;
 }
+//METODO QUE VALIDA QUE EL NUMERO DE TELEFONO TENGA 8 CARACTERES
 public String ValidarNumeroTelefono(){
    String num=JOptionPane.showInputDialog(null, "Digite su número de teléfono, sin caracteres especiales:", "Número de teléfono", 3);
  do {
@@ -138,6 +140,7 @@ public String ValidarNumeroTelefono(){
         } while (num.length() != 8);
  return num;
 }
+//METODO QUE VALIDA QUE EL CLIENTE SEA MAYOR DE 18 ANIOS
 public int ValidarEdad(){
   int ed=Integer.parseInt(JOptionPane.showInputDialog(null, "Digite su edad, recuerde que debe ser mayor de edad:", "Edad", 3));
 
@@ -152,7 +155,7 @@ public int ValidarEdad(){
         } while (ed < 18);
  return ed;
 }
-
+//METODO GET DE X
     public int getX() {
         return x;
     }
