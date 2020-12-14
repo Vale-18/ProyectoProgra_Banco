@@ -7,6 +7,7 @@ public class Menu {
     private int IDtemp;
 
     public void menu() {
+        Sorteo sorteo=new Sorteo();
         OperacionesGenerales operacion = new OperacionesGenerales();
         AcercaDe infoBanco = new AcercaDe();
         int opcion;
@@ -14,7 +15,7 @@ public class Menu {
         do {
             opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Bienvenido a tu banco, " + "\nDigite la opción que prefiera: "
                     + "\n1.Crear cuenta nueva" + "\n2.Consultar información de cliente" + "\n3.Retirar dinero " + "\n4.Depositar dinero"
-                    + "\n5.Realizar transferencia" + "\n6.Mostrar cuentas disponibles" + "\n7.Acerca del banco EVA" + "\n0. Salir", "Bankito", 1));
+                    + "\n5.Realizar transferencia" + "\n6.Mostrar cuentas disponibles" + "\n7.Acerca del banco" + "\n8.Sorteo del mes"+"\n0. Salir", "Bank App", 1));
             switch (opcion) {
                 case 1:
                     operacion.pedirInfo();
@@ -71,6 +72,11 @@ public class Menu {
                     infoBanco.orientacionAlCliente();
                     infoBanco.orientacionAlLogro();
                     break;
+                case 8:
+                    sorteo.Introduccion();
+                    sorteo.cargarPremios();
+                    sorteo.Gano();
+                break;
                 case 0:
                     opcion = 0;
                     JOptionPane.showMessageDialog(null, "!Gracias por su visita!\nVuelva pronto", "Despedida", 0);
