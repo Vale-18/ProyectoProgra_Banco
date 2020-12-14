@@ -8,20 +8,12 @@ public class OperacionesGenerales {
     private Clientes arregloCuentas[] = new Clientes[tamanio];
     private int x = 0;
 
-//    public void PrimeraCuenta() {
-//        arregloCuentas[0] = new Clientes();
-//        arregloCuentas[0].setIdCuenta(0);
-//        arregloCuentas[0].setNombre("Emmanuel");
-//        arregloCuentas[0].setCedula("118470734");
-//        arregloCuentas[0].setNumTelefono("62230270");
-//        arregloCuentas[0].setEdad(18);
-//    }
     public void pedirInfo() {
 
         int id = x;
         String nombre = JOptionPane.showInputDialog(null, "Escriba su nombre:", "Nombre", 3);
         String cedula = JOptionPane.showInputDialog(null, "Digite su cedula, sin caracteres especiales:", "Cédula", 3);
-        String numTelefono = JOptionPane.showInputDialog(null, "Digite su número de teléfono, sin caracteres especiales(-, _, /, .):", "Número de teléfono", 3);
+        String numTelefono = JOptionPane.showInputDialog(null, "Digite su número de teléfono, sin caracteres especiales:", "Número de teléfono", 3);
         int edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite su edad, recuerde que debe ser mayor de edad:", "Edad", 3));
         arregloCuentas[x] = new Clientes(cedula, nombre, numTelefono, edad, id);
         retornarDatos(id);
@@ -73,33 +65,49 @@ public class OperacionesGenerales {
         }
     }
 
-public void transaccionR(int idOrigen, int idDestino, double mon) {
-               
+    public void transaccionR(int idOrigen, int idDestino, double mon) {
+
         for (int a = 0; a < arregloCuentas.length; a++) {
             if (arregloCuentas[a].getIdCuenta() == idOrigen) {
 
                 if (mon <= arregloCuentas[a].getSaldo()) {
 
                     arregloCuentas[a].setSaldo(arregloCuentas[a].getSaldo() - mon);
-                    
+
                     transaccionD(idDestino, mon);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Lo sentimos, su cuenta tiene fondos insuficientes.", "Fondos insuficientes", 2);
                 }
-                else {
-                        JOptionPane.showMessageDialog(null, "Lo sentimos, su cuenta tiene fondos insuficientes.", "Fondos insuficientes", 3); 
-                }    
                 return;
             }
         }
     }
-    public void transaccionD(int idDestino, double mon){
+
+    public void transaccionD(int idDestino, double mon) {
         for (int b = 0; b < arregloCuentas.length; b++) {
             if (arregloCuentas[b].getIdCuenta() == idDestino) {
                 arregloCuentas[b].setSaldo(arregloCuentas[b].getSaldo() + mon);
-            return;
+                return;
             }
         }
     }
 
+    public void mostrarClientes() {
+        String texto= "Los clientes disponibles son: \n";
+        int cantidadClientes= x;
+       if (x>0) {
+                
+             for (int i = 0; i < cantidadClientes; i++) {
+            
+            texto+= "Nombre: "+arregloCuentas[i].getNombre()+"        ID: "+arregloCuentas[i].getIdCuenta()+"\n";      
+        }
+        JOptionPane.showMessageDialog(null, texto, "Clientes existentes", 1);             
+       }
+       else if (cantidadClientes==0)
+       {
+            JOptionPane.showMessageDialog(null, "Lo sentimos, no existen cuentas disponibles.", "Cuentas no disponibles", 2);           
+       }
+    }
 
     public int getX() {
         return x;
