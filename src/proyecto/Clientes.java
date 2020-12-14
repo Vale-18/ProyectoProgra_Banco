@@ -1,7 +1,4 @@
 package proyecto;
-
-import javax.swing.JOptionPane;
-
 public class Clientes {
 
     OperacionesGenerales operacion = new OperacionesGenerales();
@@ -42,17 +39,7 @@ public class Clientes {
     }
 
     public void setCedula(String cedula) {
-        do {
-            if (cedula.length() == 9) {
-                JOptionPane.showMessageDialog(null, "Cédula guardada exitosamente");
-               this.cedula = cedula;
-            } else {
-                JOptionPane.showMessageDialog(null, "Cédula inválida, digítela de nuevo");
-                cedula = JOptionPane.showInputDialog(null, "Digite su cedula, sin caracteres especiales(-, _, /,:", "Cédula", 3);
-                this.cedula = cedula;
-            }
-        } while (cedula.length() != 9);
-
+        this.cedula = cedula;
     }
 
     public String getNombre() {
@@ -68,17 +55,7 @@ public class Clientes {
     }
 
     public void setNumTelefono(String numTelefono) {
-        do {
-            if (numTelefono.length() == 8) {
-                JOptionPane.showMessageDialog(null, "Número de teléfono guardado exitosamente");
-               this.numTelefono = numTelefono;
-            } else {
-                JOptionPane.showMessageDialog(null, "Número de teléfono inválido, digítelo de nuevo");
-                numTelefono = JOptionPane.showInputDialog(null, "Digite su número de teléfono, sin caracteres especiales(-, _, /, .):", "Número de teléfono", 3);
-                this.numTelefono = numTelefono;
-            }
-        } while (numTelefono.length() != 8);
-
+        this.numTelefono = numTelefono;
     }
 
     public int getEdad() {
@@ -86,17 +63,6 @@ public class Clientes {
     }
 
     public void setEdad(int edad) {
-        do {
-            if (edad >= 18) {
-                JOptionPane.showMessageDialog(null, "Edad guardada exitosamente");
-                this.edad = edad;
-            } else {
-                JOptionPane.showMessageDialog(null, "Edad inválida, digítela de nuevo");
-                edad = (Integer.parseInt(JOptionPane.showInputDialog(null, "Digite su edad, recuerde que debe ser mayor de edad:", "Edad", 3)));
-                this.edad = edad;
-            }
-        } while (edad < 18);
-
+        this.edad = edad;
     }
-
 }
