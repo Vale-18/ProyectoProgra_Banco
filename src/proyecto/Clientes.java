@@ -7,7 +7,7 @@ public class Clientes {
     private int edad;
     private double saldo = 0;
     private int idCuenta;
-//CONSTRUCTOR
+//CONSTRUCTOR.
     public Clientes(String cedula, String nombre, String numTelefono, int edad, int idCuenta) {
         this.cedula = cedula;
         this.nombre = nombre;
