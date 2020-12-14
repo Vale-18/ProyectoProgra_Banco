@@ -1,7 +1,5 @@
 package proyecto;
 
-import proyecto.OperacionesGenerales;
-import proyecto.AcercaDe;
 import javax.swing.JOptionPane;
 
 public class Menu {
@@ -11,19 +9,16 @@ public class Menu {
     public void menu() {
         OperacionesGenerales operacion = new OperacionesGenerales();
         AcercaDe infoBanco = new AcercaDe();
-        //operacion.PrimeraCuenta();
         int opcion;
 
         do {
             opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Bienvenido a tu banco, " + "\nDigite la opción que prefiera: "
                     + "\n1.Crear cuenta nueva" + "\n2.Consultar información de cliente" + "\n3.Retirar dinero " + "\n4.Depositar dinero"
-                    + "\n5.Realizar transferencia" + "\n6.Solicitar préstamo" + "\n7.Acerca del banco EVA" + "\n0. Salir", "Bankito", 1));
-
+                    + "\n5.Realizar transferencia" + "\n6.Mostrar cuentas disponibles" + "\n7.Acerca del banco EVA" + "\n0. Salir", "Bankito", 1));
             switch (opcion) {
                 case 1:
                     operacion.pedirInfo();
                     break;
-
                 case 2:
                     IDtemp = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el identificador de la cuenta a la que desea vizualizar"));
                     if (operacion.getX() > IDtemp) {
@@ -31,7 +26,6 @@ public class Menu {
                     } else {
                         JOptionPane.showMessageDialog(null, "No existe ninguna cuenta");
                     }
-
                     break;
 
                 case 3:
@@ -67,6 +61,9 @@ public class Menu {
                     } else {
                         JOptionPane.showMessageDialog(null, "No existe ninguna cuenta para retirar");
                     }
+                    break;
+                case 6:
+                    operacion.mostrarClientes();
                     break;
                 case 7:
                     infoBanco.mision();
