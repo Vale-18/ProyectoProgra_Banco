@@ -1,6 +1,5 @@
 package proyecto;
 
-import proyecto.OperacionesGenerales;
 import javax.swing.JOptionPane;
 
 public class Clientes {
@@ -21,7 +20,6 @@ public class Clientes {
         this.edad = edad;
         this.idCuenta = idCuenta;
     }
-
 
     public double getSaldo() {
         return saldo;
