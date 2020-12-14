@@ -25,7 +25,7 @@ public void cargarPremios(){
         }
     }
 }
-//METODO QUE PIDE UN NUMERO Y ENSENIA SI GANO O NO GANO EL VIAJE
+//METODO QUE PIDE UN NUMERO Y ENSENIA SI GANO O NO GANO EL VIAJE.
 public void Gano(){
 int numero = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite un numero del 1 al " +tamanio));
 JOptionPane.showMessageDialog(null, premios[numero]);
