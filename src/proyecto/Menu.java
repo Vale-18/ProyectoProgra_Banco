@@ -44,7 +44,7 @@ public class Menu {
                 case 4://DEPOSITAR
                     IDtemp = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el identificador de la cuenta a la que desea depositar dinero"));
                     //VALIDA QUE EXISTA LA CUENTA
-                    if (operacion.getX() >= IDtemp) {
+                    if (operacion.getX() > IDtemp) {
                         operacion.depositar(IDtemp,Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el dinero que depositará el cliente ")));
                     } else {
                         JOptionPane.showMessageDialog(null, "No existe ninguna cuenta para depositar");
